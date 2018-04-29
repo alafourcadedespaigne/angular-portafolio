@@ -28,7 +28,6 @@ export class InformacionService {
 
     this.http.get('https://portafolio-web-378d7.firebaseio.com/equipo.json')
       .subscribe(data => {
-        console.log(data);
         this.cargada_nosotros = true;
         this.equipo = data;
       });
