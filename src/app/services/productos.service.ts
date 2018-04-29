@@ -15,6 +15,9 @@ export class ProductosService {
 
 
   public cargar_productos() {
+
+    this.cargando_productos = true;
+
     if (this.productos.length === 0) {
       this.http.get('https://portafolio-web-378d7.firebaseio.com/productos_idx.json')
         .subscribe( res => {
