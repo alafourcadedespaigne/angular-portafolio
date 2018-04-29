@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 // Rutas
 import {app_routing} from './app.routes';
@@ -7,13 +8,15 @@ import {app_routing} from './app.routes';
 
 // Componentes
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { PortafolioComponent } from './components/portafolio/portafolio.component';
-import { AboutComponent } from './components/about/about.component';
-import { ProductoComponent } from './components/producto/producto.component';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './components/header/header.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {PortafolioComponent} from './components/portafolio/portafolio.component';
+import {AboutComponent} from './components/about/about.component';
+import {ProductoComponent} from './components/producto/producto.component';
 
+// Services
+import {InformacionService} from './services/informacion.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,13 @@ import { ProductoComponent } from './components/producto/producto.component';
   ],
   imports: [
     BrowserModule,
-    app_routing
+    app_routing,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    InformacionService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
