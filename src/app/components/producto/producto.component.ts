@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {ProductosService} from '../../services/productos.service';
 
 @Component({
   selector: 'app-producto',
@@ -8,13 +9,22 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProductoComponent {
 
-  constructor(private route: ActivatedRoute) {
-    route.params.subscribe( parametros => {
-        console.log(parametros);
-        console.log( parametros ['id']);
+  producto: any = undefined;
+  code: string = undefined;
+
+
+  constructor(private route: ActivatedRoute, private _ps: ProductosService) {
+    route.params.subscribe(parametros => {
+
+
+      _ps.cargar_producto(parametros ['id'])
+        .subscribe(res => {
+          this.code = parametros ['id'];
+          this.producto = res;
+        });
+
     });
   }
-
 
 
 }
