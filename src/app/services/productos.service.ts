@@ -55,7 +55,7 @@ export class ProductosService {
 
     const promesa = new Promise((resolve, reject) => {
 
-      this.http.get('https://portafolio-web-378d7.firebaseio.com/productos_idx.json')
+      this.http.get<any[]>('https://portafolio-web-378d7.firebaseio.com/productos_idx.json')
         .subscribe(res => {
           this.cargando_productos = false;
           this.productos = res;

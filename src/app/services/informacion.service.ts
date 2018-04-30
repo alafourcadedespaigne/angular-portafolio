@@ -17,7 +17,7 @@ export class InformacionService {
   }
 
   public carga_info() {
-    this.http.get('assets/data/info.pagina.json')
+    this.http.get<any[]>('assets/data/info.pagina.json')
       .subscribe(data => {
         this.cargada = true;
         this.info = data;
@@ -26,7 +26,7 @@ export class InformacionService {
 
   public cargar_nosotros() {
 
-    this.http.get('https://portafolio-web-378d7.firebaseio.com/equipo.json')
+    this.http.get<any[]>('https://portafolio-web-378d7.firebaseio.com/equipo.json')
       .subscribe(data => {
         this.cargada_nosotros = true;
         this.equipo = data;
